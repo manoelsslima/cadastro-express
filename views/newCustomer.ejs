@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Cadastre o novo cliente abaixo:</p>
+    <form method="post" action="/customers/new">
+        <p>
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" value="<%= customer.name %>">
+        </p>
+        <p>
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" value="<%= customer.cpf %>">
+        </p>
+        <p>
+            <label for="address">Endereço</label>
+            <input type="text" id="address" name="address" value="<%= customer.address %>">
+        </p>
+        <input type="hidden" name="id" value="<%= customer.id %>">
+        <p>
+            <button type="submit">Salvar</button>
+        </p>
+    </form>
+    <a href="/customers/" target="_self">Cancelar</a>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascript/scripts.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Existem <%= data.length %> clientes cadastrados.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Endereço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+        <% for(let i = 0; i < data.length; i++) { %>
+          <tr>
+            <td>
+              <%= data[i].name %>
+            </td>
+            <td>
+              <%= data[i].cpf %>
+            </td>
+            <td>
+              <%= data[i].address %>
+            </td>
+            <td>
+              <button onclick="javascript:window.location.href='/customers/new/<%= data[i].id %>';">E</button>
+              <button onclick="deleteCustomer(<%= data[i].id %>)">X</button>
+            </td>
+          </tr>
+        <% } %>
+    </table>
+    <a href="/customers/new" target="_self">Cadastrar novo cliente</a>
+  </body>
+</html>
